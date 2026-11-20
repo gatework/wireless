@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-20
+
+- 无线认证会话的 VLAN 过滤改用 `netops/set`。
+
 ## [0.1.0] - 2026-11-20
 
 - 设备会话改由 net-connector v0.10.0 `connector` 提供（替代已删除的 netops `connect`）；`internal/bootstrap.Config.Dialer` 返回 `ops.Dialer` 端口，CLI 不再接触传输。

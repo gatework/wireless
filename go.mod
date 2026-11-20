@@ -4,8 +4,7 @@ go 1.26.0
 
 require (
 	github.com/gatework/net-connector v0.10.0
-	github.com/gatework/netops v0.1.0
-	github.com/gatework/set v0.2.0
+	github.com/gatework/netops v0.2.0
 	github.com/spf13/cobra v1.10.2
 	go.yaml.in/yaml/v3 v3.0.6
 	golang.org/x/sync v0.25.0

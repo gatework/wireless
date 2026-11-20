@@ -9,7 +9,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/gatework/set"
+	"github.com/gatework/netops/set"
 
 	"github.com/gatework/wireless"
 	"github.com/gatework/wireless/conflict"

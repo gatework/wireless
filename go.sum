@@ -14,10 +14,8 @@ github.com/gatework/go-expect v0.6.2 h1:bCWu3jGKdmdu5EZXOAXkdVacBovJzswML4XUQIUq
 github.com/gatework/go-expect v0.6.2/go.mod h1:e5Q30fvoQdKUT4tn+peHByNjiEBMykwjS/OWCk1hPG0=
 github.com/gatework/net-connector v0.10.0 h1:BgyhUPxKetyW3z0bn6UHKpwDj1IIbTcjtx5Fs5lvlPg=
 github.com/gatework/net-connector v0.10.0/go.mod h1:V3fGUYT/10DQAwHYifKXHiWcegJTrx9pWgrUDV7tPDw=
-github.com/gatework/netops v0.1.0 h1:kV0rv3MEGrdZdICN3Njh0/n89wARiF3zEpIa3MOQ+as=
-github.com/gatework/netops v0.1.0/go.mod h1:MAfzp/CLhPBks/3PQvb0uIRjVjpAAfmXJqRDhkJxJRE=
-github.com/gatework/set v0.2.0 h1:PXdrDhBiIrVrEVVONImsU6lsE8rCXa8KeXhQz0yYxJk=
-github.com/gatework/set v0.2.0/go.mod h1:1Jb0Ptbr7c4patfsohd3WuyIaK/5XCC5giAxipzYxRg=
+github.com/gatework/netops v0.2.0 h1:9grPfldMVkgGxbUs8Zr7lxOr7qVK9rx3tTVNnSj1rug=
+github.com/gatework/netops v0.2.0/go.mod h1:MAfzp/CLhPBks/3PQvb0uIRjVjpAAfmXJqRDhkJxJRE=
 github.com/gliderlabs/ssh v0.3.8 h1:a4YXD1V7xMF9g5nTkdfnja3Sxy1PVDCj1Zg4Wb8vY6c=
 github.com/gliderlabs/ssh v0.3.8/go.mod h1:xYoytBv1sV0aL3CavoDuJIQNURXkkfPA/wxQ1pL1fAU=
 github.com/gobwas/glob v0.2.3 h1:A4xDbljILXROh+kObIiy5kIaPYD8e96x1tgBhUI5J+Y=
