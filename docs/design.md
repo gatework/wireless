@@ -294,5 +294,5 @@ plan（渲染命令 + 回读命令，指纹）→ 人工确认（输入 "KICK aa
 | SSH 会话、精确提示符、平台 `h3c_wireless`、原子写入 | net-connector |
 | 证据、规则引擎、采集与缓存、快照、变更计划与执行、日志与审计、凭据、清单、CLI 表格与确认 | netops |
 | 配置分段游标、字段标签表 | netops `parse` |
-| VLAN 列表过滤 | gatework/set |
+| VLAN 列表过滤 | gatework/netops/set |
 | 东亚宽字符对齐 | netops `term` |
