@@ -1,0 +1,8 @@
+<AC-1> display wlan mobility roam-track mac-address 5250-0012-0411
+
+Total entries: 2
+
+BSSID           Created at           Online time       AC IP address  RID  AP name
+3ce5-a68d-2280 2016-06-14 11:12:28  00hr 48min 46sec 127.0.0.1      2    ap1
+0026-3e08-1150 2016-06-14 11:12:05  00hr 40min 46sec 127.0.0.1      2    ap2
+<AC-1>

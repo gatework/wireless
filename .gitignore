@@ -1,0 +1,8 @@
+/bin/
+/dist/
+go.work
+go.work.sum
+.env
+*.env
+!examples/*.env.example
+testdata/fuzz/

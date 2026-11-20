@@ -1,0 +1,84 @@
+# wireless.yml — copy to ~/.config/wireless/wireless.yml or ./wireless.yml.
+# Credentials never go here: use the 0600 .env next to this file (see
+# credentials.env.example) or the process environment.
+
+# Optional offline snapshot directory (one directory per controller IP).
+# It is only read: every run imports it into the local cache, newer data
+# wins, so after the first import no flag is needed.
+snapshot: ~/Documents/Snapshots/wireless
+
+# Local cache every query reads. Stale dimensions refresh automatically
+# when controllers and credentials are configured; a failed refresh falls
+# back to the cache and the banner says how old the data is.
+cache:
+  dir: ~/.local/share/wireless/cache
+  refresh: auto                  # auto | live | offline
+  timeout: 45s                   # refresh budget of one query
+  retry_after: 2m                # leave a failing controller alone this long
+  ttl:
+    clients: 5m
+    dot1x_sessions: 5m
+    mac_sessions: 5m
+    blocked_macs: 10m
+    access_points: 30m
+    bss: 30m
+    ip_conflicts: 1h
+    configuration: 24h
+
+parallel: 8
+# Zone for controller timestamps when the configuration has no
+# "clock timezone" line.
+timezone: Asia/Shanghai
+
+controllers:
+  - {host: 192.0.2.10, name: AC-HQ}
+  - {host: 192.0.2.20, name: AC-BRANCH}
+
+ssh:
+  host_key_policy: strict        # strict | accept_new | replace
+  # known_hosts: ~/.ssh/known_hosts
+  # jump_host: ops@bastion.example.com
+  login_timeout: 30s
+  command_timeout: 5m            # large controllers print MBs of client detail
+  connect_retries: 1
+
+# Diagnosis thresholds not covered by the quality model.
+thresholds:
+  echo_loss: 0.01
+  recent_reboot: 24h
+  dhcp_grace: 1m
+
+# Link quality model (H3C RSSI is dB above the noise floor). Each factor
+# maps a measurement to 0-100 through {value, score} anchors; omitted keys
+# keep their defaults.
+quality:
+  signal: [{value: 10, score: 0}, {value: 15, score: 25}, {value: 20, score: 45}, {value: 25, score: 65}, {value: 35, score: 90}, {value: 40, score: 100}]
+  weights: {signal: 0.4, efficiency: 0.2, airtime: 0.2, noise: 0.1, load: 0.1}
+  slack: {signal: 15}            # a weak signal caps the score at signal+15
+  busy_clients: 20               # busy channel with >=20 clients is congestion, else interference
+
+# Roaming analysis.
+roaming:
+  sticky_rssi: 25                # used when the radio has no anti-sticky rssi
+  dwell: 5m
+  window: 10m                    # A->B->A within it is ping-pong
+  burst: 6                       # or >=6 roams/hour among <=3 APs
+  burst_aps: 3
+  # Neighbours for sticky detection: APs of the same floor/area taken from
+  # the AP name (first non-empty group), instead of the whole AP group.
+  # area_pattern: '(\d+F)|^(\d+[A-Z])_'
+
+
+# Days of station sightings kept for roaming analysis (wireless watch).
+history_days: 7
+
+# Optional netops assess policy for `wireless health`.
+# policy: ~/.config/wireless/policy.yml
+
+# Optional: controllers from Netdisco (netops inventory.NetdiscoConfig).
+# Credentials come from ND_USERNAME/ND_PASSWORD or ND_API_KEY.
+# netdisco:
+#   url: https://netdisco.example.com
+#   cache_directory: ~/.cache/wireless/netdisco
+#   cache_ttl: 72h
+#   include_names: ["*-AC*"]

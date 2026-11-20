@@ -1,0 +1,19 @@
+display dot1x connection
+Total connections: 1
+User MAC address                   : 0200-5e10-0001
+AP name                            : AP-1F-01
+Radio ID                           : 1
+SSID                               : Corp
+BSSID                              : 0200-5e20-0011
+Username                           : alice
+
+Anonymous username                 : N/A
+Authentication domain              : corp-domain
+IPv4 address                       : 192.0.2.10
+Authentication method              : EAP
+Initial VLAN                       : 100
+Authorization VLAN                 : 120
+Authorization ACL number           : N/A
+Online from                        : 2026/11/13 11:13:37  
+Online duration                    : 4h 34m 20s
+<AC-1>

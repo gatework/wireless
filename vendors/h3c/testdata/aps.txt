@@ -1,0 +1,55 @@
+display wlan ap all verbose
+Total number of APs: 2
+Total number of connected APs: 1
+Maximum supported APs: 512
+Total AP licenses: 64
+Remaining local AP licenses: 3
+
+AP name                       : AP-1F-01
+AP ID                         : 3
+AP group name                 : default-group
+State                         : Run
+Online time                   : 229 days 5 hours 35 minutes 39 seconds
+System uptime                 : 0 days 2 hours 0 minutes 0 seconds
+Model                         : WA6330
+Serial ID                     : SN0001
+MAC address                   : 0200-5e20-0010
+IP address                    : 198.51.100.21
+S/W version                   : R2489P01
+Power info                    : PoE(802.3at)
+PoE status                    : Port 2   
+                              : Disabled 
+Echo requests                 : 10000
+Lost echo responses           : 300
+Last reboot reason            : User soft reboot
+Radio 1:
+    BSSID                     : 0200-5e20-0011
+    State                     : Up
+    Type                      : 802.11ax(5GHz)
+    Channel bandwidth         : 20MHz
+    Operational HT MCS Set    :
+        Mandatory             : Not configured
+        Supported             : 0, 1, 2, 3, 
+                                4, 5, 6, 7
+    Channel                   : 44
+    Channel usage(%)          : 82
+    Max power                 : 20 dBm
+    Noise floor               : -95 dBm
+Radio 2:
+    Basic BSSID               : 0200-5e20-0022
+    Admin state               : Up
+    Radio type                : 802.11ax(2.4GHz)
+    Channel                   : 6(auto)
+    Channel usage(%)          : 40
+    Max power                 : 10 dBm
+    Noise floor               : -90 dBm
+--------------------------------------------------------------------------------
+AP name                       : AP-2F-01
+AP ID                         : 5
+State                         : Idle
+Online time                   : N/A
+Model                         : WA6320
+Serial ID                     : SN0002
+MAC address                   : Not configured
+IP address                    : N/A
+<AC-1>

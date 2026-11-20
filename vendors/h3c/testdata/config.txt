@@ -1,0 +1,64 @@
+display current-configuration
+#
+ version 7.1.064, Release 5489P02
+#
+ sysname AC-1
+#
+ clock timezone beijing add 08:00:00
+#
+wlan service-template corp
+ ssid Corp
+ vlan 100
+ akm mode dot1x
+ cipher-suite ccmp
+ security-ie rsn
+ client-security authentication-mode dot1x
+ dot1x domain corp-domain
+ service-template enable
+#
+wlan service-template staff
+ ssid Staff
+ vlan 200
+ akm mode psk
+ preshared-key pass-phrase cipher $c$3$SECRET
+ cipher-suite ccmp
+ cipher-suite tkip
+ security-ie rsn
+ security-ie wpa
+ client-security authentication-mode mac
+ mac-authentication domain staff-domain
+ service-template enable
+#
+wlan service-template guest
+ ssid Guest
+ client-security authentication-mode mac
+ client-security ignore-authentication
+ mac-authentication domain portal-domain
+ portal enable method direct
+ portal domain portal-domain
+ portal apply web-server web1
+ service-template enable
+#
+radius scheme rad
+ primary authentication 198.51.100.5
+ primary accounting 198.51.100.5
+ secondary authentication 198.51.100.6 key cipher $c$3$SECRET
+ key authentication cipher $c$3$SECRET
+ nas-ip 198.51.100.1
+#
+domain corp-domain
+ authentication lan-access radius-scheme rad
+#
+domain staff-domain
+ authentication lan-access radius-scheme rad
+#
+domain portal-domain
+ authentication portal radius-scheme rad
+#
+ domain default enable corp-domain
+#
+portal web-server web1
+ url http://portal.example.com/login
+#
+return
+<AC-1>

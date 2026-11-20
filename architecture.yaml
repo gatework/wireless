@@ -1,0 +1,47 @@
+# Package layering (STANDARD.md ARC-1), checked by archcheck.
+declared:
+  - .
+  - ./action
+  - ./adapter/sightings
+  - ./cmd/wireless
+  - ./conflict
+  - ./diagnose
+  - ./health
+  - ./internal/bootstrap
+  - ./internal/cli
+  - ./internal/workflow
+  - ./quality
+  - ./roam
+  - ./vendors/h3c
+
+rules:
+  - name: the root model depends on no local package
+    packages: [.]
+    deny: [./...]
+  - name: domain packages do not depend on application or transport
+    packages: [., ./action/..., ./conflict/..., ./diagnose/..., ./health/..., ./quality/..., ./roam/..., ./vendors/...]
+    deny: [./adapter/..., ./internal/..., github.com/gatework/net-connector/..., github.com/gatework/go-expect/..., github.com/spf13/..., golang.org/x/term/...]
+    transitive: true
+  - name: domain packages do no direct file or network IO
+    packages: [., ./action/..., ./conflict/..., ./diagnose/..., ./health/..., ./quality/..., ./roam/..., ./vendors/...]
+    deny: [os, io/fs, net, net/http/..., database/sql/..., path/filepath, syscall, golang.org/x/sys/...]
+  - name: link quality and roaming models depend only on the root model
+    packages: [./quality/..., ./roam/..., ./conflict/...]
+    only_local: [.]
+  - name: analysis does not depend on vendor syntax or actions
+    packages: [./diagnose/..., ./health/...]
+    deny: [./vendors/..., ./action/...]
+  - name: workflows use injected ports only
+    packages: [./internal/workflow/...]
+    deny: [./internal/cli/..., ./internal/bootstrap/..., ./adapter/..., ./vendors/..., github.com/gatework/net-connector/..., github.com/spf13/...,
+           github.com/gatework/netops/store/..., github.com/gatework/netops/inventory]
+  - name: the sightings adapter stays transport free
+    packages: [./adapter/sightings/...]
+    deny: [github.com/gatework/go-expect/..., github.com/gatework/net-connector/...]
+  - name: the retired kernels are not used
+    packages: [./...]
+    deny: [github.com/gatework/go-netops/..., github.com/gatework/parser/...]
+    transitive: true
+  - name: the command line does not reach the transport directly
+    packages: [./internal/cli/...]
+    deny: [github.com/gatework/net-connector/..., github.com/gatework/go-expect/...]

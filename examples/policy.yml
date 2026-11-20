@@ -1,0 +1,9 @@
+# netops assess policy for `wireless health`. Parameter overrides must
+# match the declared type (integer or number), or the policy is rejected.
+rules:
+  wireless.radio_busy:
+    params: {busy_percent: 60}
+  wireless.shared_key_only:
+    enabled: false
+  wireless.ip_conflict_recent:
+    params: {days: 3}

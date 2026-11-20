@@ -1,0 +1,21 @@
+# systemd unit keeping the wireless cache warm and the roaming history
+# growing. Install as /etc/systemd/system/wireless-watch.service, put the
+# 0600 credentials in /etc/wireless/.env next to wireless.yml, then:
+#   systemctl enable --now wireless-watch
+[Unit]
+Description=wireless: refresh controller client lists
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=netops
+Environment=WIRELESS_CONFIG=/etc/wireless/wireless.yml
+ExecStart=/usr/local/bin/wireless watch --interval 2m
+Restart=on-failure
+RestartSec=30s
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/netops/.local/share/wireless
+
+[Install]
+WantedBy=multi-user.target

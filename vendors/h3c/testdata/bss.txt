@@ -1,0 +1,22 @@
+display wlan bss all verbose
+Current BSS number: 2
+Max BSS number: 61440
+Bound BSS number: 2
+ AP name                      : AP-1F-01
+ BSSID                        : 0200-5e20-0011 
+ Radio ID                     : 1 
+ Service template name        : corp
+ SSID                         : Corp
+ VLAN ID                      : 100
+ AKM mode                     : 802.1X
+ User authentication mode     : 802.1X
+
+ AP name                      : AP-1F-02
+ BSSID                        : 0200-5e20-0022 
+ Radio ID                     : 2 
+ Service template name        : staff
+ SSID                         : Staff
+ VLAN ID                      : 200
+ AKM mode                     : PSK
+ User authentication mode     : MAC
+<AC-1>

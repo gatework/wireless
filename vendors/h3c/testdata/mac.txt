@@ -1,0 +1,15 @@
+display mac-authentication connection
+Total connections: 1
+User MAC address                   : 0200-5e10-0009
+AP name                            : AP-1F-02
+Radio ID                           : 2
+SSID                               : Staff
+BSSID                              : 0200-5e20-0022
+Username                           : 02-00-5e-10-00-09
+Authentication domain              : staff-domain
+Authentication method              : PAP
+Initial VLAN                       : 200
+Authorization VLAN                 : 200
+Online from                        : 2026/10/30 02:33:19  
+Online duration                    : 349h 14m 42s
+<AC-1>

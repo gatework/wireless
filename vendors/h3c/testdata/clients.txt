@@ -1,0 +1,54 @@
+display wlan client verbose
+Total number of clients: 2
+
+ MAC address                       : 0200-5e10-0001  
+ IPv4 address                      : 192.0.2.10
+ IPv6 address                      : N/A
+ Username                          : alice
+ 
+ AID                               : 8
+ AP ID                             : 3
+ AP name                           : AP-1F-01
+ Radio ID                          : 1
+ Channel                           : 44
+ SSID                              : Corp
+ BSSID                             : 0200-5e20-0011
+ VLAN ID                           : 100
+ Sleep count                       : 10
+ Wireless mode                     : 802.11ax
+ Channel bandwidth                 : 20MHz 
+ Block Ack                         : TID 0  Both
+                                     TID 7  Out
+ Supported HT MCS set              : 0, 1, 2, 3, 
+                                     4, 5, 6, 7
+ RSSI                              : 42
+ Rx/Tx rate                        : 143.4/108.3 Mbps
+ Speed                             : 16.532/588.672Kbps
+ Authentication method             : Open system
+ Security mode                     : RSN
+ AKM mode                          : 802.1X
+ Cipher suite                      : CCMP
+ User authentication mode          : 802.1X
+ Roam status                       : Intra-AC roam
+ Online time                       : 0days 1hours 33minutes 43seconds
+ BTM mode                          : Active
+--------------------------------------------------------------------------------
+ MAC address                       : 0600-5e10-0002
+ IPv4 address                      : 192.0.2.11
+ IPv6 address                      : 2001:db8::11
+ Username                          : 06-00-5e-10-00-02
+ AP ID                             : 4
+ AP name                           : AP-1F-02
+ Radio ID                          : 2
+ Channel                           : 6
+ SSID                              : Staff
+ BSSID                             : 0200-5e20-0022
+ VLAN ID                           : 200
+ Wireless mode                     : 802.11g
+ RSSI                              : 12
+ Rx/Tx rate                        : 6/9 Mbps
+ Speed                             : N/A
+ AKM mode                          : PSK
+ User authentication mode          : MAC
+ Online time                       : 0days 0hours 5minutes 0seconds
+<AC-1>
