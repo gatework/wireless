@@ -1,4 +1,4 @@
-# wireless.yml — copy to ~/.config/wireless/wireless.yml or ./wireless.yml.
+# wireless.yml — copy to ~/.gatework/wireless.yml or ./wireless.yml.
 # Credentials never go here: use the 0600 .env next to this file (see
 # credentials.env.example) or the process environment.
 
@@ -73,7 +73,7 @@ roaming:
 history_days: 7
 
 # Optional netops assess policy for `wireless health`.
-# policy: ~/.config/wireless/policy.yml
+# policy: ~/.gatework/wireless.policy.yml
 
 # Optional: controllers from Netdisco (netops inventory.NetdiscoConfig).
 # Credentials come from ND_USERNAME/ND_PASSWORD or ND_API_KEY.

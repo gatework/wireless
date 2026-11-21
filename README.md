@@ -27,7 +27,7 @@ make check          # 规范门禁：fmt、tidy、vet、lint、arch、test、vul
 
 ## 配置
 
-复制 [examples/wireless.yml](examples/wireless.yml) 到 `~/.config/wireless/wireless.yml`。凭据放在同目录的 `.env` 中（权限 0600，参考 [examples/credentials.env.example](examples/credentials.env.example)），也可以直接用环境变量 `NC_H3C_WIRELESS_USERNAME` / `NC_H3C_WIRELESS_PASSWORD`。
+复制 [examples/wireless.yml](examples/wireless.yml) 到 `~/.gatework/wireless.yml`。凭据放在同目录的 `.env` 中（权限 0600，参考 [examples/credentials.env.example](examples/credentials.env.example)），也可以直接用环境变量 `NC_H3C_WIRELESS_USERNAME` / `NC_H3C_WIRELESS_PASSWORD`。
 
 ## 使用
 
