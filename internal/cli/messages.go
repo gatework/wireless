@@ -44,7 +44,7 @@ AP、射频、BSS、终端、802.1X/MAC 认证会话、IP 冲突与黑名单数�
 	shortBlockDel     = "移出静态黑名单（MAC/IP/账号，默认全网所有 AC）"
 	shortBlockList    = "实时查看控制器静态黑名单"
 
-	flagConfig     = "配置文件（默认 $WIRELESS_CONFIG、./wireless.yml、~/.config/wireless/wireless.yml）"
+	flagConfig     = "配置文件（默认 $WIRELESS_CONFIG、./wireless.yml、~/.gatework/wireless.yml）"
 	flagEnvFile    = "凭据文件（默认配置文件同目录 .env，权限须为 0600）"
 	flagSnapshot   = "离线快照目录：只读导入本地缓存（之后无需再指定）"
 	flagJSON       = "以 JSON 输出"

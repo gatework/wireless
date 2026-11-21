@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-20
+
+### Changed
+
+- 升级到 netops v0.3.0，默认配置改为 `~/.gatework/wireless.yml`。旧配置及同目录的 `.env` 可迁至 `~/.gatework/`，也可通过 `WIRELESS_CONFIG` 指定原配置。
+
 ## [0.1.1] - 2026-11-20
 
 - 无线认证会话的 VLAN 过滤改用 `netops/set`。
