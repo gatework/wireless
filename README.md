@@ -79,7 +79,7 @@ wireless block list                      # 全网黑名单一致性
 
 ## 缓存与刷新
 
-所有查询都读取本地缓存。配置了控制器和凭据后，过期的数据会自动刷新；刷新失败时继续使用缓存，并在 stderr 横幅里注明数据时间和失败原因。用 `wireless watch` 作为服务常驻运行（见 `examples/wireless-watch.service`），可以让缓存一直保持新鲜。
+所有查询都读取本地缓存。配置了控制器和凭据后，过期的数据会自动刷新；刷新失败时继续使用缓存，并在 stderr 横幅里注明数据时间和失败原因。用 `wireless watch` 作为服务常驻运行（见 `examples/wireless-watch.service`），可以让缓存一直保持新鲜。watch 由 netops 调度器驱动：轮次不重叠，运行历史可在 `wireless status` 中查看；采集失败和作业失败写入事件日志 `events.jsonl`，并可推送到签名 Webhook（见 `examples/wireless.yml` 的 `watch` 段）。
 
 ## 快照格式
 

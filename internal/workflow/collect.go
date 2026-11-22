@@ -40,7 +40,9 @@ type CollectRequest struct {
 	Workers   int
 	Timeout   time.Duration
 	Events    batch.Events[capture.Capture]
-	Now       func() time.Time
+	// Notify publishes collect.failed for controllers that failed.
+	Notify ops.Notify
+	Now    func() time.Time
 }
 
 // DimensionSummary is how one dimension of one controller decoded.
@@ -64,7 +66,7 @@ func Collect(ctx context.Context, r CollectRequest) (Collected, error) {
 	dims := dimensions(r.Dimensions)
 	rep, err := ops.Collect(ctx, ops.CollectRequest{
 		Devices: r.Targets, Dimensions: dims, Probes: r.Vendor, Dialer: r.Dialer, Snapshots: r.Store,
-		Workers: r.Workers, Timeout: r.Timeout, Events: r.Events, Now: r.Now,
+		Workers: r.Workers, Timeout: r.Timeout, Events: r.Events, Now: r.Now, Notify: r.Notify,
 		OnCapture: sightings(r.Vendor, r.Sightings),
 	})
 	out := Collected{Summary: rep.Summary(), Dimensions: map[string]map[evidence.Dimension]DimensionSummary{}}

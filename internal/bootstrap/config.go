@@ -49,6 +49,21 @@ type file struct {
 	Policy      string                    `yaml:"policy"`
 	Journal     string                    `yaml:"journal"`
 	Netdisco    *inventory.NetdiscoConfig `yaml:"netdisco"`
+	Watch       watchFile                 `yaml:"watch"`
+}
+
+// watchFile configures wireless watch: its schedules and where its events
+// go.
+type watchFile struct {
+	Interval time.Duration `yaml:"interval"`
+	Sweep    string        `yaml:"sweep"`
+	Events   eventsFile    `yaml:"events"`
+}
+
+type eventsFile struct {
+	File        string `yaml:"file"`
+	Webhook     string `yaml:"webhook"`
+	MinSeverity string `yaml:"min_severity"`
 }
 
 type cacheFile struct {
@@ -96,8 +111,12 @@ type Config struct {
 	History    time.Duration
 	PolicyPath string
 	JournalDir string
-	netdisco   *inventory.NetdiscoConfig
-	env        map[string]string
+	// DataDir holds the tool's own data: run history and the event log.
+	DataDir string
+	// Watch configures wireless watch.
+	Watch    Watch
+	netdisco *inventory.NetdiscoConfig
+	env      map[string]string
 }
 
 // Load reads the configuration and credentials. A missing configuration
@@ -189,6 +208,12 @@ func (c *Config) apply(f file, home string) error {
 	c.PolicyPath = resolve(f.Policy, home)
 	c.JournalDir = resolve(firstNonEmpty(f.Journal, filepath.Join(data, "actions")), home)
 	c.netdisco = f.Netdisco
+	c.DataDir = data
+	w, err := watchConfig(f.Watch, c.Location, data, home)
+	if err != nil {
+		return err
+	}
+	c.Watch = w
 	return nil
 }
 

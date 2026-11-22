@@ -165,6 +165,7 @@ const (
 	msgTrackSparse      = "采样间隔过大，可能漏掉乒乓；缩短 watch 间隔\n"
 	msgWatchRound       = "第 %d 轮：%d 台控制器，%d 台完整，耗时 %s\n"
 	msgWatchFailed      = "第 %d 轮失败：%v\n"
+	msgEventUndelivered = "事件未送达：%v\n"
 	msgNoHistory        = "提示：没有漫游轨迹，乒乓漫游未检查；运行 wireless watch 或定时 collect --dimension clients 积累轨迹\n\n"
 	msgFactors          = "评分    %s\n"
 	msgFinding          = "  [%s] %-4s %s\n"
@@ -225,6 +226,7 @@ var severityWords = map[string]string{"info": "提示", "low": "低", "medium": 
 // statusWords name evidence statuses.
 var statusWords = map[string]string{
 	"complete": "完整", "partial": "部分", "failed": "失败", "unsupported": "不支持", "not_requested": "未采集",
+	"succeeded": "成功", "skipped": "未执行", "cancelled": "已取消",
 }
 
 // defaultLimit is how many rows a list shows unless --limit says otherwise.
@@ -283,6 +285,7 @@ const (
 	statusCacheLine   = "本地缓存  %s（模式 %s，单次刷新预算 %s，失败后 %s 内不重试）\n"
 	statusSourceLine  = "离线来源  %s（每次只读导入，较新者胜）\n"
 	statusJournalLine = "漫游轨迹  %s 至 %s（%d 天）\n"
+	statusWatchLine   = "watch %-8s 上次运行 %s，%s %s\n"
 	statusNoJournal   = "漫游轨迹  无（运行 wireless watch 积累）\n"
 	wordConfigured    = "已配置"
 	wordMissing       = "未配置"

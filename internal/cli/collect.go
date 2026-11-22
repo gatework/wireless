@@ -15,6 +15,7 @@ import (
 	"github.com/gatework/netops/capture"
 	"github.com/gatework/netops/device"
 	"github.com/gatework/netops/evidence"
+	"github.com/gatework/netops/ops"
 	"github.com/gatework/netops/term"
 
 	"github.com/gatework/wireless"
@@ -59,6 +60,11 @@ func (a *app) collectCommand() *cobra.Command {
 // collect refreshes dims on the selected controllers. Progress goes to
 // stderr unless quiet.
 func (a *app) collect(ctx context.Context, dims []evidence.Dimension, parallel int, quiet bool) (workflow.Collected, error) {
+	return a.collectNotify(ctx, dims, parallel, quiet, ops.Notify{})
+}
+
+// collectNotify is collect that also publishes collection failures.
+func (a *app) collectNotify(ctx context.Context, dims []evidence.Dimension, parallel int, quiet bool, n ops.Notify) (workflow.Collected, error) {
 	cfg, err := a.config(ctx)
 	if err != nil {
 		return workflow.Collected{}, err
@@ -90,7 +96,7 @@ func (a *app) collect(ctx context.Context, dims []evidence.Dimension, parallel i
 	}
 	return workflow.Collect(ctx, workflow.CollectRequest{
 		Targets: targets, Dimensions: dims, Vendor: cfg.Vendor(), Dialer: dialer,
-		Store: st, Sightings: cfg.Sightings(), Workers: parallel, Events: events, Now: a.env.Now,
+		Store: st, Sightings: cfg.Sightings(), Workers: parallel, Events: events, Now: a.env.Now, Notify: n,
 	})
 }
 
