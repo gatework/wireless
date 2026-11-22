@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+### Changed
+
+- `wireless watch` 改用 netops `job` 调度：
+  - 启动时立即采集一轮，之后按 `watch.interval`（或 `--interval`）执行；上一轮未结束不会开始下一轮，错过的时间点不补跑。
+  - 可选 `watch.sweep`（cron 或 `@every`）按计划采集全部维度。
+  - 每轮运行记入 `<数据目录>/runs`，`wireless status` 显示各作业上次运行的时间与结果。
+
+### Added
+
+- 运维事件：采集失败（`collect.failed`）与作业失败（`job.failed`）写入 `<数据目录>/events.jsonl`；可配置 `watch.events.webhook`，按 `min_severity` 过滤，使用 `$WIRELESS_WEBHOOK_SECRET` 做 HMAC 签名推送。
+- 共享运维内核更新至 netops v0.5.1。
+
+### Fixed
+
+- `collect` 与 `status` 表格中的成功、未执行、已取消状态此前显示为空白。
+
 ## [0.2.1] - 2026-11-21
 
 - 更新设备会话依赖至 net-connector v0.10.3，更新共享运维内核至 netops v0.4.0。

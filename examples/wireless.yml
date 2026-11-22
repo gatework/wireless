@@ -82,3 +82,15 @@ history_days: 7
 #   cache_directory: ~/.cache/wireless/netdisco
 #   cache_ttl: 72h
 #   include_names: ["*-AC*"]
+
+# wireless watch: client sampling, an optional full sweep, and where its
+# events go. Events are JSON Lines in the data directory by default
+# (file: "-" disables); a webhook receives events at or above
+# min_severity, signed with $WIRELESS_WEBHOOK_SECRET (HMAC-SHA256 in the
+# X-Netops-Signature header).
+# watch:
+#   interval: 2m
+#   sweep: "0 */6 * * *"
+#   events:
+#     webhook: https://hooks.example.com/wireless
+#     min_severity: medium

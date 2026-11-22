@@ -57,6 +57,7 @@ func (a *app) statusCommand() *cobra.Command {
 			} else {
 				a.printf(statusNoJournal)
 			}
+			a.watchStatus(ctx, cfg)
 			header := []string{statusController}
 			for _, g := range statusGroups {
 				header = append(header, g.label)
